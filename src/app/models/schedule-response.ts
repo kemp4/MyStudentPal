@@ -1,4 +1,4 @@
-export interface ResponseData {
+export interface ScheduleResponse {
   message: string;
   schedule: any;
 }

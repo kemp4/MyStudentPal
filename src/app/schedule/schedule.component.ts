@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {IScheduleEvent} from './../models/schedule-event';
 
 @Component({
@@ -17,24 +17,14 @@ export class ScheduleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.monday.push({
-      name: 'Konsultacje',
-      dataStart: '09:30',
-      dataEnd: '10:30',
-      room: 213
-    });
-    this.monday.push({
-      name: 'Konsultacje',
-      dataStart: '12:30',
-      dataEnd: '13:30',
-      room: 213
-    });
-    this.thursday.push({
-      name: 'Konsultacje',
-      dataStart: '12:30',
-      dataEnd: '13:30',
-      room: 213
-    });
   }
 
+  public fillSchedule(responseData: any): void {
+    this.monday.push({
+      name: responseData.monday[0].name,
+      dataStart: responseData.monday[0].dataStart,
+      dataEnd: responseData.monday[0].dataEnd,
+      room: responseData.monday[0].room
+    });
+  }
 }
