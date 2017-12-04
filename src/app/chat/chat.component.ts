@@ -20,6 +20,7 @@ export class ChatComponent {
     });
 
     client.textRequest(message.value).then((response) => {
+      console.log(response);
       this.conversation.push({
         avatar: 'android',
         from: 'Bot',

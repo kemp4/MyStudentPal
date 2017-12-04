@@ -1,19 +1,32 @@
-<mat-list>
-  <mat-list-item *ngFor="let message of conversation">
-    <!--<mat-icon>{{ message.avatar }}</mat-icon>-->
-    <h3 matLine> {{message.from}} </h3>
-    <p matLine>
-      <span> {{message.content}} </span>
-    </p>
-  </mat-list-item>
-</mat-list>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput
-           #message
-           maxlength="256"
-           placeholder="Message"
-           (keyup.enter)="addMessageFromUser(message)">
-    <!--<mat-icon matSuffix (click)="addMessageFromUser(message)">send</mat-icon>-->
-  </mat-form-field>
-</form>
+<div class="chat">
+  <div class="header">
+    <p><span class="glyphicon glyphicon-comment"></span> Chat</p>
+  </div>
+  <div class="main-body" #scrollMe [scrollTop]="scrollMe.scrollHeight" >
+    <mat-list>
+      <div *ngFor="let message of conversation">
+        <div class="message-container" *ngIf="message.from == 'Me'">
+          <img src="./../../../assets/images/user-icon1.png" alt="Avatar" style="width:100%;">
+          <p>{{message.content}}</p>
+          <span class="time-left">11:00</span>
+        </div>
+        <div class="message-container darker" *ngIf="message.from == 'Bot'">
+          <img src="./assets/images/bot-icon.png" alt="Avatar" class="right" style="width:100%;">
+          <p>{{message.content}}</p>
+          <span class="time-right">11:00</span>
+        </div>
+      </div>
+    </mat-list>
+  </div>
+  <div class="footer">
+    <mat-form-field class="full-width">
+      <input matInput
+             #message
+             maxlength="256"
+             placeholder="Message"
+             (keyup.enter)="addMessageFromUser(message)"
+             autocomplete="off">
+      <mat-icon matSuffix (click)="addMessageFromUser(message)">send</mat-icon>
+    </mat-form-field>
+  </div>
+</div>

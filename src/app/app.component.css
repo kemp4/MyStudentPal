@@ -1,0 +1,25 @@
+.navbar-inverse
+{
+  background-color: #063963;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 7px #428bca;
+}
+
+.container-fluid
+{
+  margin: 0;
+}
+
+.navbar-brand
+{
+  font-size: 25px;
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a
+{
+  background-color: #428bca;
+  border-radius: 5px;
+}

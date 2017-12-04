@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { MaterialModule } from './material/material.module';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

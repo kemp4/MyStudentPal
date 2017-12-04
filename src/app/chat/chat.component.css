@@ -1,26 +1,96 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
+.full-width {
+  width: 85%;
+  margin-left: 20px;
+  padding-top: 10px;
 }
 
 mat-list {
   height:500px;
-  max-height: 60%;
-  overflow-y: scroll;
+  max-height: 450px;
 }
 
 mat-icon {
-  color: purple;
+  color: #428bca;
   cursor: pointer;
 }
 
-form {
-  position: fixed;
-  bottom: 0;
-  left: 33%;
+.message-container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  max-width: 100%;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.message-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.message-container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.message-container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.chat
+{
+  /*margin-left:70%;*/
+  border: 1px solid #fff;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 7px #292929;
+  border-radius: 10px;
+  width: 500px;
+}
+
+.header
+{
+  margin: 2px;
+  max-height: 50px;
+  background-color: #428bca;
+  border-radius: 10px;
+  box-shadow: 0px 2px 7px #428bca;
+  color: #fff;
+  font-size: 22px;
+  padding : 10px;
+}
+
+.main-body
+{
+  margin: 10px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.footer
+{
+  height: 70px;
+  background-color: whiteSmoke;
+  border-top: 1px solid #DDD;
+  border-radius: 10px;
 }
