@@ -11,24 +11,40 @@ import { MainService } from './shared/main.service';
 })
 export class MainComponent implements OnInit {
   public conversation: IMessage[] = [];
-  constructor() { }
-
+  constructor(private mainService: MainService) {
+  }
   ngOnInit() {
   }
 
+  private pushMine(message: string): void {
+    this.conversation.push({
+      from: 'Me',
+      content: message
+    });
+  }
+  private pushBot(message: string): void {
+    this.conversation.push({
+      from: 'Bot',
+      content: message
+    });
+  }
+  private processBotSpeech(incomingSpeech: string): void {
+    const speech = incomingSpeech || 'I can\'t seem to figure that out!';
+    this.pushBot(speech);
+  }
   public processData(message: string): void {
-    console.log(message);
-      this.conversation.push({
-        from: 'Me',
-        content: message
-      });
+    this.pushMine(message);
 
-      client.textRequest(message).then((response) => {
-        console.log(response);
-        this.conversation.push({
-          from: 'Bot',
-          content: response.result.fulfillment['speech'] || 'I can\'t seem to figure that out!'
-        });
+    client.textRequest(message)
+      .then((response) => {
+        const fulfillment = response.result.fulfillment;
+        this.processBotSpeech(fulfillment['speech']);
+        if (fulfillment['messages'].length > 1) {
+          this.mainService.getRoomByTeacherName(fulfillment['messages'][1].payload.endpoint,
+            fulfillment['messages'][1].payload.parameters).subscribe(responseData => {
+            this.pushBot(responseData.message);
+          });
+        }
       });
     }
 }
