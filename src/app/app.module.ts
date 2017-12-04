@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { MaterialModule } from './material/material.module';
 import { MainComponent } from './main/main.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
-    MainComponent
+    MainComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
