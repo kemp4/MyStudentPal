@@ -1,3 +1,8 @@
-<p>
-  main works!
-</p>
+<div class="main-container">
+  <div class="chat">
+    <app-chat
+      [conversation] = "conversation"
+      (onBotResponseReceived)="processData($event)">
+    </app-chat>
+  </div>
+</div>
