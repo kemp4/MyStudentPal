@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IMessage } from './../models/message';
 import { client } from './../dialog-flow-client/dialog-flow.client';
+import { MainService } from './shared/main.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  providers: [MainService]
 })
 export class MainComponent implements OnInit {
   public conversation: IMessage[] = [];
