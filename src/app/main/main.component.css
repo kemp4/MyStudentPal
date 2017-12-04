@@ -1,5 +1,8 @@
 .main-container
 {
   display: flex;
-  justify-content: space-around;
+
+}
+.schedule{
+  width: 70%;
 }
